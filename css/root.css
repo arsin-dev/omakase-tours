@@ -1,71 +1,74 @@
 :root {
     --black: #333333;
     --gray: #b1b1b1;
+    --max-width: 800px;
+    --padding-x: 1.5rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
 }
 
-html {
-    display: table;
-    margin: auto;
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    max-width: 600px;
-
-    background-image: url("../assets/yota.png");
-    background-repeat: repeat;
-    background-size: 100px; /* Adjust this size as needed */
-
     font-family: "MS Gothic", "ＭＳ ゴシック", monospace;
     font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 20px;
+    line-height: 1.6;
+    color: var(--black);
+    margin: 0 auto;
+    padding: 0 var(--padding-x);
+    max-width: var(--max-width);
 }
 
-.header {
-    display: grid;
-    width: 100%;
-    margin: 2rem 0;
-}
-
+/* Logo styling */
 .logo-container {
-    margin: 2rem 0;
     display: flex;
     align-items: center;
-    gap: 1rem; /* Space between logos */
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    justify-content: center;
 }
 
-.small-logo {
-    height: 64px; /* Adjust as needed */
-    width: auto;
-}
-
+.small-logo,
 .text-logo {
-    height: 64px; /* Adjust as needed */
+    height: 48px;
     width: auto;
+}
+
+/* Navigation */
+.navbar {
+    width: 100%;
+    border-top: 1px solid var(--gray);
+    border-bottom: 1px solid var(--gray);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-lg);
 }
 
 .navbar {
-    width: 100%;
     display: flex;
     justify-content: flex-start;
-    padding: 10px 0;
-    margin-top: 20px;
+    gap: var(--spacing-lg);
 }
 
 .navbar a {
-    margin-right: 40px; /* Space between nav items */
     text-decoration: none;
-    color: var(--black);
-    font-size: 18px;
-}
-
-.navbar a:hover {
     color: var(--gray);
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+    position: relative;
 }
 
 .navbar a.active {
@@ -73,50 +76,85 @@ body {
     font-weight: bold;
 }
 
-.navbar a:not(.active) {
-    color: var(--gray);
+.navbar a:hover {
+    color: var(--black);
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .content {
-    text-align: left;
+    max-width: 100%;
 }
 
-div.main {
-    display: flex;
-    flex-direction: column;
-
-    width: calc(min(100%, 900px));
-    flex-grow: 1;
-
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
+.content h1 {
+    margin-bottom: var(--spacing-lg);
+    font-size: 2rem;
 }
 
+.content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+/* Links */
 a {
     color: var(--gray);
-    border-bottom: 1px var(--gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:visited {
     color: var(--gray);
-    border-bottom: 1px var(--gray);
 }
 
 a:hover {
     color: var(--black);
-    border-bottom: 1px var(--gray);
 }
 
+/* Lists */
 ul {
     list-style-type: disc;
-    margin: 0;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
 }
 
-.logo-container,
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 8px;
+/* Media Queries */
+@media (max-width: 600px) {
+    :root {
+        --padding-x: 1rem;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .small-logo,
+    .text-logo {
+        height: 40px;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .content h1 {
+        font-size: 1.75rem;
+    }
+
+    body {
+        font-size: 15px;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+    :root {
+        --max-width: 1000px;
+    }
 }
