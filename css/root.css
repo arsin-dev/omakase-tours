@@ -1,0 +1,108 @@
+:root {
+    --black: #333333;
+    --gray: #b1b1b1;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: 600px;
+
+    font-family: "MS Gothic", "ＭＳ ゴシック", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 20px;
+}
+
+.header {
+    display: grid;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.logo-container {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between logos */
+}
+
+.small-logo {
+    height: 64px; /* Adjust as needed */
+    width: auto;
+}
+
+.text-logo {
+    height: 64px; /* Adjust as needed */
+    width: auto;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.navbar a {
+    margin-right: 40px; /* Space between nav items */
+    text-decoration: none;
+    color: var(--black);
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: var(--gray);
+}
+
+.navbar a.active {
+    color: var(--black);
+    font-weight: bold;
+}
+
+.navbar a:not(.active) {
+    color: var(--gray);
+}
+
+.content {
+    text-align: left;
+}
+
+div.main {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(min(100%, 900px));
+    flex-grow: 1;
+
+    margin: 0 auto;
+}
+
+a {
+    color: var(--gray);
+    border-bottom: 1px var(--gray);
+}
+
+a:visited {
+    color: var(--gray);
+    border-bottom: 1px var(--gray);
+}
+
+a:hover {
+    color: var(--black);
+    border-bottom: 1px var(--gray);
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0;
+}
